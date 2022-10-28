@@ -1,23 +1,22 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
+import MyNewComponent from './components/MyNewComponent';
 
 function App() {
+  const peopleArray = [
+  {"lastName": "Doe", "firstName": "Jane", "age": 45, "hairColor": "Black"}, 
+  {"lastName": "Smith", "firstName": "Jon", "age": 88, "hairColor": "Brown"},
+  {"lastName": "Fillmore", "firstName": "Millard", "age": 50, "hairColor": "Brown"},
+  {"lastName": "Smith", "firstName": "Maria", "age": 62, "hairColor": "Brown"} 
+]
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {
+        peopleArray.map((person) => {
+          return <MyNewComponent
+          person = {person}></MyNewComponent>
+        })
+      }
     </div>
   );
 }
